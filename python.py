@@ -24,7 +24,6 @@ def withdraw():
 
 balance = 0
 is_running = True
-i=0
 while is_running :
     print("\n--------------------------------------------")
     print("WELCOME TO V BANK")

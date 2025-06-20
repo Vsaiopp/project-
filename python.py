@@ -1,76 +1,33 @@
-# slot machine 
-import random
-def spin_row() :
-    symbols =["🍉","🥥","🍊","🍎","🥝"]
+# password manager 
+def add_account() :
+    account_name = input('Enter your account name')
 
-    return [random.choice(symbols) for symbol in range(3)]
+def view_account() :
+    pass
 
-def print_row(row):
-    print("".join(row))
+def saerch_by_username():
+    pass
 
-def get_payout(row,bet):
-   if row[0] == row[2] == row[1] :
-       if row[0] =="🍉" :
-           return bet*3
-       elif row[0] =="🥥":
-           return bet*2
-       elif row[0] =="🍊":
-           return bet*25
-       elif row[0] =="🍎":
-           return bet*5
-       elif row[0] =="🥝":
-           return bet*8
-       else :
-           return 0
-       
-def main():
-    balance =100
+def remove_account() :
+    pass
 
-    print("-------------------------")
-    print("Welcome to the slot game ")
-    print("symbols: 🍉🥥🥝🍊🍎")
-    print("-------------------------")
-    
-    while balance > 0 :
-        print(f"your current balance is ${balance}")
-        bet = input("Enter a bet amount")
-        
-        if not bet.isdigit():
-            print("ENTER A VALID AMOUNT")
-            continue
-        bet = int(bet)
+is_running =True
 
-        if bet > balance:
-            print("INSUFFICIENT FUNDS")
-            continue
+while is_running :
+    print("------------------------")
+    print("        Welcome         ")
+    print("------------------------")
+    print('1. add account' \
+    '2. view saved accounts' \
+    '3. Search by user_name ' \
+    '4. Remove account' \
+    '5. Exit')
+    service = input("please enter a service (1-5) : ")
 
-        if bet<=0 :
-            print("BET MUST BE GREATER THAN $0 ")
-            continue
-        balance-=bet
+    if service == '5':
+        is_running =False
+        break 
+    if service == '1' :
+        add_account()
 
-        print("Spinning the slot machine... 🎰")
-        row = spin_row()
-        print(" | ".join(row))
-
-        payout = get_payout(row,bet)
-        
-
-        if payout > 0:
-          print(f"you won ${payout}")
-
-        else :
-          print("YOU LOST AGAIN ")
-
-        balance +=payout
-
-        play_again = input("DO you want to play another game (Y/N)").upper()
-
-        if play_again != "Y" :
-            break
-
-
-print("YOU ARE OUT OF MONEY")
-if __name__=='__main__':
-    main()
- 
+print('Thank you for viusiting ')
